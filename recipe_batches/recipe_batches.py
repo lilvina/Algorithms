@@ -3,7 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    obj = {}
+
+    for key, value in ingredients.items():
+        obj[key] = 0
+        while value >= recipe[key]:
+            obj[key] += 1
+            value -= recipe[key]
+        if len(ingredients) < len(recipe):
+            return 0
+        else:
+            return min(obj.values())
 
 
 if __name__ == '__main__':
